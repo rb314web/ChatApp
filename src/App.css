@@ -1,38 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,300&display=swap');
+
+* {
+  margin: 0;padding: 0;box-sizing: border-box;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #cf0707;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(57, 57, 58);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #7c7c7c;
+  border-radius: 5px;
+}
+
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 500px;
+  width: 30vw;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: -1px 1px 40px;
+}
+
+.auth-header {
+  color: white;
+  padding-bottom: 50px;
+}
+
+.auth-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  width: 200px;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 25px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.auth-button svg{
+  margin-right: 10px;
+}
+
+.sign-out-app {
+  background: none;
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+padding: 10px 20px;
+border: none;
+border-top-right-radius: 25px;
+cursor: pointer;
+/* font-family: 'Roboto', sans-serif; */
+transition: background-color .3s;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://cdn.pixabay.com/photo/2023/08/14/15/42/milkyway-8190232_1280.jpg');
+  background-repeat: none;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.room-select {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 500px;
+  width: 40vh;
+  padding: 90px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: -1px 1px 40px;
+}
+
+.room-select h1 {
+  margin-bottom: 50px;
+  font-size: 25px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.room-select input {
+  align-self: stretch;
+  padding: 15px;
+  background-color: transparent;
+  font-size: 15px;
+  color: white;
+  border: 1px solid #aeaeae;
+  border-radius: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.room-select-button {
+  align-self: stretch;
+  padding: 15px 40px;
+  margin-top: 50px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.chat-app {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  padding: 100px 50px;
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  box-shadow: -1px 1px 40px;
+}
+
+.header {
+  color: #fff;
+}
+
+.messages {
+  height: 40vh;
+  width: 100%;
+  max-height: 60vh;
+  overflow-y: scroll;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+
+.user {
+  font-size: 13px;
+  color:#e7e7e7;
+}
+
+.new-message-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  align-self: stretch;
+
+}
+
+.new-message-input {
+color: #fff;
+width: 100%;
+padding: 15px;
+border-radius: 20px;
+background: transparent;
+border: 1px solid #aeaeae;
+transition: border .3s;
+}
+
+.send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slide-in-left {
+	-webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.empty-room {
+  position: absolute;
+  padding-bottom: 8px;
+  color: #a5a5a5;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+.sign-out-chat {
+  background: none;
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+padding: 10px 20px;
+border: none;
+border-top-right-radius: 25px;
+cursor: pointer;
+/* font-family: 'Roboto', sans-serif; */
+transition: background-color .3s;
+}
+
+.room-out-chat {
+  background: none;
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  right: 95px;
+  top: 0;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+transition: background-color .3s;
+}
+
+.sign-out-chat:hover, .room-out-chat:hover, .sign-out-app:hover{
+  background-color: rgba(255, 0, 0, 0.392);
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-9-4 23:55:28
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-in-left
+ * ----------------------------------------
+ */
+ @-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
   }
 }
