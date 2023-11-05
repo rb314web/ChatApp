@@ -7,10 +7,9 @@ import {
   onSnapshot,
   query,
   orderBy,
-  collectionGroup,
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
-import { ReactComponent as SendSvg } from '../send.svg'
+import { ReactComponent as SendSvg } from "../send.svg";
 
 export const Chat = (props) => {
   const [messages, setMessages] = useState([]);
@@ -28,42 +27,36 @@ export const Chat = (props) => {
     );
 
     onSnapshot(queryMessages, (snapshot) => {
-        let messages = [];
-        snapshot.forEach((doc) => {
-          messages.push({ ...doc.data(), id: doc.id });
-        });
-        console.log(messages);
-        setMessages(messages);
+      let messages = [];
+      snapshot.forEach((doc) => {
+        messages.push({ ...doc.data(), id: doc.id });
       });
-
-
+      console.log(messages);
+      setMessages(messages);
+    });
   }, []);
 
   useEffect(() => {
-    var myElement = document.querySelector('.message:nth-last-child(1)');
+    var myElement = document.querySelector(".message:nth-last-child(1)");
     var topPos = myElement && myElement.offsetTop;
 
-    document.querySelector('.messages').scrollTop = topPos;
+    document.querySelector(".messages").scrollTop = topPos;
 
-
-    setNewMessage('')
-    document.querySelector('.new-message-input').focus()
-    document.querySelector('.messages').scrollTop = topPos;
-  }, [messages])
+    // setNewMessage('')
+    document.querySelector(".new-message-input").focus();
+    document.querySelector(".messages").scrollTop = topPos;
+  }, [messages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (newMessage === "") {
-
-      document.querySelector('.new-message-input ').style.border = '1px solid red'
-      setTimeout( () => {
-        
-        document.querySelector('.new-message-input ').style.border = '1px solid #aeaeae'
-        document.querySelector('.new-message-input').focus()
-      }, 1000)
-      return
-
+      document.querySelector(".new-message-input ").classList.toggle("error");
+      setTimeout(() => {
+        document.querySelector(".new-message-input ").classList.toggle("error");
+        document.querySelector(".new-message-input").focus();
+      }, 1000);
+      return;
     }
 
     await addDoc(messagesRef, {
@@ -73,41 +66,42 @@ export const Chat = (props) => {
       room,
     });
 
-    var myElement = document.querySelector('.message:nth-last-child(1)');
-    var topPos = myElement.offsetTop;
+    const myElement = document.querySelector(".message:nth-last-child(1)");
+    const topPos = myElement.offsetTop;
 
-    document.querySelector('.messages').scrollTop = topPos;
+    document.querySelector(".messages").scrollTop = topPos;
 
-
-    setNewMessage('')
-    document.querySelector('.new-message-input').focus()
-    document.querySelector('.messages').scrollTop = topPos;
+    setNewMessage("");
+    document.querySelector(".new-message-input").focus();
+    document.querySelector(".messages").scrollTop = topPos;
   };
 
   return (
     <div className="chat-app">
-        <button className="sign-out-chat" onClick={signUserOut}>Wyloguj</button>
-        <button className="room-out-chat" onClick={returnToRoomSelect}>Wyjdź z pokoju</button>
+      <button className="sign-out-chat" onClick={signUserOut}>
+        Wyloguj
+      </button>
+      <button className="room-out-chat" onClick={returnToRoomSelect}>
+        Wyjdź z pokoju
+      </button>
       <div className="header">
-        <h1>Witaj w pokoju {room.toUpperCase()}!</h1>
+        <h1>Witaj w pokoju {room}!</h1>
       </div>
 
       <div className="messages">
-        {messages.map((message) => (
-          <div key={message.id} className="message slide-in-left">
-            <span className="user">{message.user}:</span> {message.text}
-          </div>
-        ))}
+        {messages.map((message) => {
+          console.log(auth.currentUser.displayName)
+          return (
+            <div key={message.id} className={auth.currentUser.displayName === message.user ? 'message slide-in-right' : 'message slide-in-left'}>
+              <span className="user">{message.user}:</span> {message.text}
+            </div>
+          );
+        })}
       </div>
 
       {!messages.length && (
-        
         <div className="empty-room">Brak wiadomości w pokoju.</div>
-      )}   
-
-    
-
-
+      )}
 
       <form onSubmit={handleSubmit} className="new-message-form">
         <input
@@ -117,11 +111,9 @@ export const Chat = (props) => {
           className="new-message-input"
         />
         <button type="submit" className="send-button">
-          <SendSvg/>
+          <SendSvg />
         </button>
       </form>
-
-      
     </div>
   );
 };
