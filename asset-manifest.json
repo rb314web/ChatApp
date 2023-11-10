@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/ChatApp/static/css/main.0d501a7a.css",
+    "main.css": "/ChatApp/static/css/main.3b3f3beb.css",
     "main.js": "/ChatApp/static/js/main.5e549f52.js",
     "static/js/787.7ea0274a.chunk.js": "/ChatApp/static/js/787.7ea0274a.chunk.js",
     "static/media/logo googleg 48dp.svg": "/ChatApp/static/media/logo googleg 48dp.792c02f57e537b8d3acf61496d7c4727.svg",
     "index.html": "/ChatApp/index.html",
     "static/media/user-plus.svg": "/ChatApp/static/media/user-plus.7df9a289df2eaf4229e6091b340a9799.svg",
     "static/media/send.svg": "/ChatApp/static/media/send.b69829bd3b227dccb4a15579649969a8.svg",
-    "main.0d501a7a.css.map": "/ChatApp/static/css/main.0d501a7a.css.map",
+    "main.3b3f3beb.css.map": "/ChatApp/static/css/main.3b3f3beb.css.map",
     "main.5e549f52.js.map": "/ChatApp/static/js/main.5e549f52.js.map",
     "787.7ea0274a.chunk.js.map": "/ChatApp/static/js/787.7ea0274a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d501a7a.css",
+    "static/css/main.3b3f3beb.css",
     "static/js/main.5e549f52.js"
   ]
 }
