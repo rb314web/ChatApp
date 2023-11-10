@@ -98,6 +98,7 @@ export const Auth = (props) => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="······"
             ></input>
+        <div className="error-msg">Błędny login lub hasło!</div>
             <button type="submit">Zaloguj</button>
           </form>
           <span>
@@ -109,7 +110,6 @@ export const Auth = (props) => {
        
 
 
-        {/* <div className="error-msg">Błędny login lub hasło!</div> */}
       </div>
     </>
   );

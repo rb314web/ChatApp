@@ -34,7 +34,7 @@ function App() {
     return (
       <div className="App">
         <Routes> 
-            <Route path="/" element={<Auth setIsAuth={setIsAuth} /> } /> 
+            <Route index path="/ChatApp" element={<Auth setIsAuth={setIsAuth} /> } /> 
             <Route path="/signup" element={<SignUp/> } /> 
        </Routes> 
        <div className="shadow"></div>

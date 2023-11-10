@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 :root {
-  --button-color: #2f90f5
+  --button-color: #2f90f5;
+  --button-radius: 5px;
+  --button-font-size: 15px;
 }
 
 * {
@@ -26,10 +28,11 @@
   border-radius: 5px;
 }
 .App {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('https://cdn.pixabay.com/photo/2023/10/14/09/20/mountains-8314422_1280.png');
   background-size: cover;
   background-position: center;
@@ -40,7 +43,8 @@
   position: absolute;
   background: #000000e0;;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  top: 0;
 }
 
 .auth {
@@ -67,11 +71,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: var(--button-font-size);
   width: 100%;
   padding: 15px 10px;
   border: 1px solid #555;
-  border-radius: 15px;
+  border-radius: var(--button-radius);
   background-color: rgb(0, 0, 0);
   color: #fff;
   cursor: pointer;
@@ -90,7 +94,6 @@
   top: 0;
 padding: 10px 20px;
 border: none;
-border-top-right-radius: 25px;
 cursor: pointer;
 /* font-family: 'Roboto', sans-serif; */
 transition: background-color .3s;
@@ -107,6 +110,7 @@ transition: background-color .3s;
   width: 40vh;
   padding: 90px;
   z-index: 100;
+text-align: center;
 }
 
 .room-select h1 {
@@ -122,17 +126,18 @@ transition: background-color .3s;
   font-size: 15px;
   color: white;
   border: 1px solid #aeaeae;
-  border-radius: 25px;
+  border-radius: var(--button-radius);
 }
 
 .room-select-button {
   align-self: stretch;
   padding: 15px 40px;
   margin-top: 50px;
-  background-color: blue;
+  background-color: var(--button-color);
   color: white;
+  font-size: var(--button-font-size);
   border: none;
-  border-radius: 25px;
+  border-radius: var(--button-radius);
   cursor: pointer;
 }
 
@@ -143,7 +148,8 @@ transition: background-color .3s;
   align-items: center;
   flex-direction: column;
   width: 50%;
-  padding: 100px 50px;
+  max-width: 600px;
+  margin-left: 150px;
   z-index: 100;
 }
 
@@ -177,6 +183,10 @@ transition: background-color .3s;
   color:#e7e7e7;
 }
 
+form {
+  width: 100%;
+}
+
 .new-message-form {
   display: flex;
   justify-content: center;
@@ -190,7 +200,7 @@ transition: background-color .3s;
 color: #fff;
 width: 100%;
 padding: 15px;
-border-radius: 20px;
+border-radius: var(--button-radius);
 background: transparent;
 border: 1px solid #aeaeae;
 transition: border .3s;
@@ -203,9 +213,9 @@ transition: border .3s;
   margin-left: 20px;
   min-width: 50px;
   height: 50px;
-  background-color: blue;
+  background-color: var(--button-color);
   border: none;
-  border-radius: 50%;
+  border-radius: var(--button-radius);
   cursor: pointer;
 }
 
@@ -232,10 +242,9 @@ transition: border .3s;
   font-size: 15px;
   position: absolute;
   right: 0;
-  top: 0;
+  top: -30px;
 padding: 10px 20px;
 border: none;
-border-top-right-radius: 25px;
 cursor: pointer;
 /* font-family: 'Roboto', sans-serif; */
 transition: background-color .3s;
@@ -247,7 +256,7 @@ transition: background-color .3s;
   font-size: 15px;
   position: absolute;
   right: 95px;
-  top: 0;
+  top: -30px;
 padding: 10px 20px;
 border: none;
 cursor: pointer;
@@ -304,11 +313,12 @@ transition: background-color .3s, color .3s;
 .login-email form button[type='submit'] {
   align-self: stretch;
   padding: 15px 40px;
-  margin-top: 50px;
+  margin-top: 0px;
   background-color: var(--button-color);;
   color: white;
+  font-size: var(--button-font-size);
   border: none;
-  border-radius: 25px;
+  border-radius: var(--button-radius);
   cursor: pointer;
 }
 
@@ -319,7 +329,7 @@ transition: background-color .3s, color .3s;
   font-size: 15px;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: var(--button-radius);
 }
 
 .signup {
@@ -327,11 +337,19 @@ transition: background-color .3s, color .3s;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 80vh;
-  width: 50vw;
-
+  min-height: 80vh;
+  width: 580px;
+ padding-left: 150px;
   color: white;
   z-index: 100;
+}
+.nameWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup .nameWrapper .wrapper input {
+  margin-right: 5px;
 }
 
 .signup form {
@@ -340,26 +358,43 @@ transition: background-color .3s, color .3s;
   flex-direction: column;
 }
 
+form p {
+  margin-top: 20px;
+}
 .signup input {
   align-self: stretch;
   padding: 15px;
-  background-color: #33364b;
+  background-color: #252525;
   font-size: 15px;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: var(--button-radius);
   margin: 10px 7px 40px 0;
+  width: 100%;
 }
 
 .signup-submit{
   align-self: stretch;
   padding: 15px 40px;
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: var(--button-color);
   color: white;
+  font-size: var(--button-font-size);
   border: none;
-  border-radius: 25px;
+  border-radius: var(--button-radius);
   cursor: pointer;
+}
+
+.login-link {
+  display: flex;
+  width: 100%;
+  padding: 40px 0;
+  color: white;
+}
+
+.login-link a {
+  color: white;
+  margin-left: 5px;
 }
 
 .singup-back{
@@ -379,16 +414,16 @@ text-decoration: none;
 }
 
 .error-msg {
-  position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 10px;
-  color: white;
+  padding: 5px;
+  color: white;font-size: 14px;
   background-color: #cf0707;
-  border-radius: 0px 0px  25px 25px;
   opacity: 0;
-  transition: 1s;
+  transition: opacity 1s;
   text-align: center;
+  border-radius: var(--button-radius);
+  margin: 30px 0;
 }
 
 .red::placeholder {
@@ -400,6 +435,19 @@ text-decoration: none;
   max-width: 400px;
 }
 
+.login-link {
+  color: white;
+}
+
+.signup-succesful {
+  display: flex;
+  justify-content: center;align-items: flex-start;flex-direction: column;
+  width: 50vw;
+  margin-left: 150px;
+  height: 100%;
+  z-index: 1000;
+  color: white;
+}
 
 /* ----------------------------------------------
  * Generated by Animista on 2023-9-4 23:55:28
@@ -499,6 +547,10 @@ text-decoration: none;
     text-align: center;
   }
 
+  .nameWrapper {
+    flex-direction: column;
+  }
+
   .header {
     margin: 70px 0 50px 0;
   }
@@ -513,8 +565,27 @@ text-decoration: none;
   }
 
   .chat-app {
+    margin-left: 0;
     padding: 10px;
     width: 95vw;
+  }
+
+  .signup {
+    width: 100%;
+    padding-left: 0;
+    margin: 10vw;
+  }
+  .signup h1 {
+    text-align: center;
+  }
+  .signup form button {
+    font-size: 15px;
+  }
+
+  .signup-succesful {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -533,14 +604,21 @@ text-decoration: none;
   display: flex;
 }
 
-.signup-succesful {
-  display: flex;
-  justify-content: center;align-items: center;flex-direction: column;
-  width: 50%;
-  height: 100%;
-  z-index: 1000;
-  color: white;
+.signup-succesful h1{
   font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.signup-succesful svg {
+width: 100px;
+height: 100px;
+margin: 20px;
+}
+
+.signup-succesful a {
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
 }
 
 .line {

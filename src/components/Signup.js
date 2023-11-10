@@ -3,6 +3,7 @@ import { getAnalytics, setUserProperties } from "firebase/analytics";
 import { Link } from "react-router-dom";
 
 import { useState } from "react";
+import {ReactComponent as UserPlus} from '../user-plus.svg'
 
 const Signup = () => {
 
@@ -180,9 +181,12 @@ const Signup = () => {
   if (registerSucessful) {
    return (
     <>
-   <div className="signup-succesful">Udało się!
+   <div className="signup-succesful">
+    <UserPlus />
+    <h1>Udało się!</h1>
+    <p>Konto zostało utworzone. </p>
    
-   <Link to='/'>Zaloguj się</Link>
+   <Link to='/ChatApp'>Zaloguj się</Link>
    </div>
    </>
    )
@@ -213,11 +217,16 @@ const Signup = () => {
         <div className="wrapper">
         <input name='repeatPassword' className="input-repeatpassword" type="password" placeholder="Powtórz hasło" value={formData.repeatPassword} onChange={handleInputChange}></input>
         </div>
-        <p>Posiadasz juź konto? <Link to='/' >
-        Zaloguj się
-      </Link></p>
-        <button className="signup-submit" type="submit">Załóź konto</button>
+        <button className="signup-submit" type="submit">Załóź darmowe konto</button>
       </form>
+
+        <div className="login-link">
+        <p>Posiadasz juź konto?</p>
+        <Link to='/ChatApp' >
+        Zaloguj się
+      </Link>
+      </div>
+
     </div>
   );
 };
