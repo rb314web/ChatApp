@@ -110,6 +110,7 @@ transition: background-color .3s;
   align-items: center;
   height: 500px;
   width: 40vw;
+  max-width: 600px;
   padding: 90px;
   z-index: 100;
 text-align: center;
@@ -161,6 +162,7 @@ border-right:1px solid #484848
 .header {
   color: #fff;
   margin-bottom: 30px ;
+  width: 100%;
 }
 
 .messages {
@@ -247,12 +249,12 @@ transition: border .3s;
   font-size: 15px;
   position: absolute;
   right: 0;
-  top: 0;
+  top: -40px;
 padding: 10px 20px;
 border: none;
 cursor: pointer;
-/* font-family: 'Roboto', sans-serif; */
 transition: background-color .3s;
+border-right: 1px solid white;
 }
 
 .room-out-chat {
@@ -261,7 +263,7 @@ transition: background-color .3s;
   font-size: 15px;
   position: absolute;
   right: 95px;
-  top: 0;
+  top: -40px;
 padding: 10px 20px;
 border: none;
 cursor: pointer;
@@ -610,9 +612,6 @@ margin: 20px;
     padding: 20px 0;
   }
 
-  .header {
-    width: 100%;
-  }
 }
 
 
@@ -650,6 +649,8 @@ margin: 20px;
   }
 
   .header {
+    text-align: center;
+    width: auto;
     margin: 70px 0 50px 0;
   }
 
